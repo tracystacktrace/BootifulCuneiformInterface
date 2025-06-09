@@ -1,0 +1,9 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "net.tracystacktrace.bootifulcuneiforminterface.mixins",
+  "compatibilityLevel": "JAVA_8",
+  "mixins": [
+    "MixinGuiEditCuneiformBlock"
+  ]
+}
