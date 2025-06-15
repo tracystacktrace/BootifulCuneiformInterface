@@ -1,4 +1,8 @@
 
+## [1.2] - 2025-06-15
+- Now the mod provides QoL features to sign and name tag interfaces
+- A little description change due to expansion of the mod :3
+
 ## [1.1] - 2025-06-15
 - Moved the "Done" and "Finish Writing" buttons to a different place
 - Added confirmation for "Finish Writing" button

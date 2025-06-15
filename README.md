@@ -1,10 +1,14 @@
 # Bootiful Cuneiform Interface
 
-A tiny mod that upgrades a cuneiform editing interface with color/format input buttons and paste/erase functions buttons
+A mod that upgrades a **cuneiform**, **sign** and **name tag** editing interfaces with QoL features!
+
+Input color and format signs, copy and paste the content and... uhh escape sequence character (`\n`)???
 
 This is a client-side mod, which uses [FoxLoader](https://github.com/Fox2Code/FoxLoader) mod loader for ReIndev (2.9)
 
-![Showcase!](https://github.com/tracystacktrace/BootifulCuneiformInterface/raw/main/docs/showcase.png)
+![Cuneiform Interface](https://github.com/tracystacktrace/BootifulCuneiformInterface/raw/main/docs/showcase.png)
+![Sign Interface](https://github.com/tracystacktrace/BootifulCuneiformInterface/raw/main/docs/showcase_2.png)
+![Name Tag Interface](https://github.com/tracystacktrace/BootifulCuneiformInterface/raw/main/docs/showcase_3.png)
 
 ## Installation
 

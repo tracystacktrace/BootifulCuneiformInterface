@@ -5,9 +5,11 @@
   "compatibilityLevel": "JAVA_8",
   "mixins": [
     "AccessorGuiEditCuneiformBlock",
+    "AccessorGuiEditNameTag",
     "AccessorGuiEditSign",
     "AccessorGuiScreen",
     "MixinGuiEditCuneiformBlock",
+    "MixinGuiEditNameTag",
     "MixinGuiEditSign"
   ]
 }

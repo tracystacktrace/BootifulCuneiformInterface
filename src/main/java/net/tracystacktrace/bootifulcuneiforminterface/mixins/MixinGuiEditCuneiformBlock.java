@@ -101,4 +101,5 @@ public abstract class MixinGuiEditCuneiformBlock extends GuiScreen {
             this.drawString(fontRenderer, bootifulcuneiforminterface$info2, offsetXRight + 34, 10 + 10 * 16, 0xFFFFFFFF);
         }
     }
+
 }

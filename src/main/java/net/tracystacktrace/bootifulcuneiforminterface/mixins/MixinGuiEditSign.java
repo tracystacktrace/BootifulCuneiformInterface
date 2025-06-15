@@ -25,7 +25,7 @@ public class MixinGuiEditSign extends GuiScreen {
     private SignInterface bootifulCuneiformInterface$helper;
 
     @Inject(method = "<init>", at = @At("TAIL"))
-    private void injectHelper(TileEntitySign tileEntitySign, CallbackInfo ci) {
+    private void bootifulcuneiforminterface$injectHelper(TileEntitySign tileEntitySign, CallbackInfo ci) {
         this.bootifulCuneiformInterface$helper = new SignInterface(GuiEditSign.class.cast(this));
         bootifulcuneiforminterface$info1 = StringTranslate.getInstance().translateKey("bootifulcuneiforminterface.erase.confirmation");
         bootifulcuneiforminterface$info2 = StringTranslate.getInstance().translateKey("bootifulcuneiforminterface.finish.confirmation");
@@ -51,7 +51,7 @@ public class MixinGuiEditSign extends GuiScreen {
     private void bootifulcuneiforminterface$injectButtonActions(GuiButton button, CallbackInfo ci) {
         bootifulCuneiformInterface$helper.onClickToResetState(button, 0);
 
-        if(button.enabled) {
+        if (button.enabled) {
             if (button.id == 0) {
                 bootifulCuneiformInterface$helper.onClickFinishButton();
                 ci.cancel();
@@ -80,11 +80,12 @@ public class MixinGuiEditSign extends GuiScreen {
         final int offsetY = this.height / 2 - 64;
 
         if (bootifulCuneiformInterface$helper.isEraseProceed()) {
-            this.drawString(fontRenderer, bootifulcuneiforminterface$info1, offsetXRight, offsetY + 3 * 16 + 5, 0xFFFFFFFF);
+            this.drawString(fontRenderer, bootifulcuneiforminterface$info1, offsetXRight, offsetY + 3 * 16 + 6, 0xFFFFFFFF);
         }
 
         if (bootifulCuneiformInterface$helper.isFinishProceed()) {
-            this.drawString(fontRenderer, bootifulcuneiforminterface$info2, offsetXRight, offsetY + 5 * 16 + 7, 0xFFFFFFFF);
+            this.drawString(fontRenderer, bootifulcuneiforminterface$info2, offsetXRight, offsetY + 5 * 16 + 8, 0xFFFFFFFF);
         }
     }
+
 }

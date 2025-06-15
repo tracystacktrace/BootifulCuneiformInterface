@@ -25,8 +25,8 @@ public class SignInterface extends InterfaceHelper {
     @Override
     protected void setText(String text) {
         //just cleanup code
-        if(text.isEmpty()) {
-            for(int i = 0; i < 4; i++) {
+        if (text.isEmpty()) {
+            for (int i = 0; i < 4; i++) {
                 this.getEntitySign().signText[i] = "";
             }
             return;
@@ -41,12 +41,12 @@ public class SignInterface extends InterfaceHelper {
 
     @Override
     protected void appendText(String text) {
-        if(text.isEmpty()) {
+        if (text.isEmpty()) {
             return;
         }
 
         String[] textArray = this.getEntitySign().signText;
-        for(char c : text.toCharArray()) {
+        for (char c : text.toCharArray()) {
             if (ChatAllowedCharacters.isAllowedCharacter(c) && textArray[this.getEditLine()].length() < 15) {
                 textArray[this.getEditLine()] = textArray[this.getEditLine()] + c;
             }
@@ -64,11 +64,11 @@ public class SignInterface extends InterfaceHelper {
     }
 
     private int getEditLine() {
-        return ((AccessorGuiEditSign)screen).bci$getEditLine();
+        return ((AccessorGuiEditSign) screen).bci$getEditLine();
     }
 
     private TileEntitySign getEntitySign() {
-        return ((AccessorGuiEditSign)screen).bci$getEntitySign();
+        return ((AccessorGuiEditSign) screen).bci$getEntitySign();
     }
 
 }
