@@ -4,6 +4,8 @@
   "package": "net.tracystacktrace.bootifulcuneiforminterface.mixins",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
+    "AccessorGuiEditCuneiformBlock",
+    "AccessorGuiScreen",
     "MixinGuiEditCuneiformBlock"
   ]
 }
