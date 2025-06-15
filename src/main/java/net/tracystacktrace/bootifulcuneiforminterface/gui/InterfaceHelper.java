@@ -103,8 +103,8 @@ public abstract class InterfaceHelper {
         if (!this.finishProceed) {
             this.finishProceed = true;
         } else {
-            Minecraft.getInstance().displayGuiScreen(null);
             this.finishWriting();
+            Minecraft.getInstance().displayGuiScreen(null);
         }
     }
 
