@@ -87,18 +87,21 @@ public abstract class MixinGuiEditCuneiformBlock extends GuiScreen {
 
             final int offsetXRight = this.width / 2 + this.b_width / 2 - 26;
 
-            //\u2193
             final StringTranslate translate = StringTranslate.getInstance();
 
             //general custom buttons
-            GuiButton buttonCopy = new GuiButton(122, offsetXRight, offsetY, 16, 16, "§a\u2193", translate.translateKey("bootifulcuneiforminterface.paste"));
+            GuiButton buttonPaste = new GuiButton(122, offsetXRight, offsetY, 16, 16, "§a\u2193", translate.translateKey("bootifulcuneiforminterface.paste"));
+            buttonPaste.canDisplayInfo = true;
+            GuiButton buttonCopy = new GuiButton(124, offsetXRight, offsetY + 16, 16, 16, "§e↑", translate.translateKey("bootifulcuneiforminterface.copy"));
             buttonCopy.canDisplayInfo = true;
+
 
             this.bootifulcuneiforminterface$eraseButton = new GuiButton(123, offsetXRight + 16, offsetY, 16, 16, "§c\u274C", translate.translateKey("bootifulcuneiforminterface.erase"));
             this.bootifulcuneiforminterface$eraseButton.canDisplayInfo = true;
 
-            this.controlList.add(this.bootifulcuneiforminterface$eraseButton);
             this.controlList.add(buttonCopy);
+            this.controlList.add(this.bootifulcuneiforminterface$eraseButton);
+            this.controlList.add(buttonPaste);
 
 
             //change original two buttons
@@ -176,6 +179,12 @@ public abstract class MixinGuiEditCuneiformBlock extends GuiScreen {
                     this.text = "";
                     this.bootifulcuneiforminterface$eraseProceed = false;
                 }
+                ci.cancel();
+            }
+
+            //copy to clipboard
+            if(button.id == 124) {
+                GuiScreen.setClipboardString(this.text);
                 ci.cancel();
             }
         }
