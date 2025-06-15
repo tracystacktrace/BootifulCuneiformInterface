@@ -3,7 +3,7 @@ bootifulcuneiforminterface.copy=Copy to clipboard
 bootifulcuneiforminterface.erase=Erase text
 bootifulcuneiforminterface.save=Save and close
 bootifulcuneiforminterface.finish=Finish writing
-bootifulcuneiforminterface.escapechar=Add escape sequence (\\n)
+bootifulcuneiforminterface.escapechar=Add new line char (\\n)
 
 bootifulcuneiforminterface.erase.confirmation=§cPress again to ERASE
 bootifulcuneiforminterface.finish.confirmation=§ePress again to FINISH

@@ -1,0 +1,9 @@
+bootifulcuneiforminterface.paste=Вставить из буфера обмена
+bootifulcuneiforminterface.copy=Скопировать в буфер обмена
+bootifulcuneiforminterface.erase=Очистить поле
+bootifulcuneiforminterface.save=Сохранить и закрыть
+bootifulcuneiforminterface.finish=Закончить работу
+bootifulcuneiforminterface.escapechar=Добавить символ новой линий (\\n)
+
+bootifulcuneiforminterface.erase.confirmation=§cНажмите еще раз чтобы УДАЛИТЬ
+bootifulcuneiforminterface.finish.confirmation=§eНажите еще раз чтобы ЗАКОНЧИТЬ
