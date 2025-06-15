@@ -6,6 +6,7 @@ import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.common.util.i18n.StringTranslate;
 import net.tracystacktrace.bootifulcuneiforminterface.BootifulCuneiformInterface;
 import net.tracystacktrace.bootifulcuneiforminterface.mixins.AccessorGuiScreen;
+
 public abstract class InterfaceHelper {
 
     protected final GuiScreen screen;
@@ -85,13 +86,13 @@ public abstract class InterfaceHelper {
     public boolean onClickColorFormatButtons(GuiButton button) {
         //insert color
         if (button.id >= 100 && button.id <= 115) {
-            this.addText("§" + BootifulCuneiformInterface.COLORS[button.id - 100]);
+            this.appendText("§" + BootifulCuneiformInterface.COLORS[button.id - 100]);
             return true;
         }
 
         //insert format
         if (button.id >= 116 && button.id <= 121) {
-            this.addText("§" + BootifulCuneiformInterface.FORMATS[button.id - 116]);
+            this.appendText("§" + BootifulCuneiformInterface.FORMATS[button.id - 116]);
             return true;
         }
 
@@ -99,7 +100,7 @@ public abstract class InterfaceHelper {
     }
 
     public void onClickFinishButton() {
-        if(!this.finishProceed) {
+        if (!this.finishProceed) {
             this.finishProceed = true;
         } else {
             Minecraft.getInstance().displayGuiScreen(null);
@@ -127,7 +128,7 @@ public abstract class InterfaceHelper {
             if (clipboardText != null && !clipboardText.isEmpty()) {
                 int availableSpace = 256 - this.getText().length();
                 if (availableSpace > 0) {
-                    this.addText(clipboardText.substring(0, Math.min(availableSpace, clipboardText.length())).replaceAll("[\n\r\t\u0000\f\ufffd]", ""));
+                    this.appendText(clipboardText.substring(0, Math.min(availableSpace, clipboardText.length())).replaceAll("[\n\r\t\u0000\f\ufffd]", ""));
                 }
             }
             return true;
@@ -147,13 +148,13 @@ public abstract class InterfaceHelper {
         }
 
         //copy to clipboard
-        if(button.id == 124) {
+        if (button.id == 124) {
             GuiScreen.setClipboardString(this.getText());
             return true;
         }
 
-        if(button.id == 125) {
-            this.addText("\n");
+        if (button.id == 125) {
+            this.appendText("\n");
             return true;
         }
 
@@ -168,7 +169,7 @@ public abstract class InterfaceHelper {
         }
 
         //reset finish trigger
-        if(this.finishProceed) {
+        if (this.finishProceed) {
             this.finishProceed = false;
         }
     }
@@ -176,16 +177,16 @@ public abstract class InterfaceHelper {
     /* inner methods */
 
     protected void addButton(GuiButton button) {
-        ((AccessorGuiScreen)this.screen).getControlListElements().add(button);
+        ((AccessorGuiScreen) this.screen).getControlListElements().add(button);
     }
 
     protected GuiButton getButton(int index) {
-        return ((AccessorGuiScreen)this.screen).getControlListElements().get(index);
+        return ((AccessorGuiScreen) this.screen).getControlListElements().get(index);
     }
 
-    protected abstract void setText(String s);
+    protected abstract void setText(String text);
 
-    protected abstract void addText(String s);
+    protected abstract void appendText(String text);
 
     protected abstract String getText();
 

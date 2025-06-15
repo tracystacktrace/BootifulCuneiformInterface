@@ -30,14 +30,13 @@ public abstract class MixinGuiEditCuneiformBlock extends GuiScreen {
     private String bootifulcuneiforminterface$info2;
 
     @Unique
-    private CuneiformInterface bootifulCuneiformInterface$interfaceHelper;
+    private CuneiformInterface bootifulCuneiformInterface$helper;
 
     /* END */
 
     @Inject(method = "<init>", at = @At("TAIL"))
     private void bootifulcuneiforminterface$injectConstructor(TileEntityCuneiformBlock block, CallbackInfo ci) {
-        this.bootifulCuneiformInterface$interfaceHelper = new CuneiformInterface(this);
-
+        this.bootifulCuneiformInterface$helper = new CuneiformInterface(GuiEditCuneiformBlock.class.cast(this));
         bootifulcuneiforminterface$info1 = StringTranslate.getInstance().translateKey("bootifulcuneiforminterface.erase.confirmation");
         bootifulcuneiforminterface$info2 = StringTranslate.getInstance().translateKey("bootifulcuneiforminterface.finish.confirmation");
     }
@@ -45,36 +44,37 @@ public abstract class MixinGuiEditCuneiformBlock extends GuiScreen {
     @Inject(method = "initGui", at = @At("TAIL"))
     private void bootifulcuneiforminterface$injectButtons(CallbackInfo ci) {
         if (!this.uneditable) {
-            bootifulCuneiformInterface$interfaceHelper.initReset();
+            bootifulCuneiformInterface$helper.initReset();
 
-            final int offsetX = this.width / 2 - this.b_width / 2 - 12;
-            final int offsetY = 4;
+            final int offsetXLeft = this.width / 2 - this.b_width / 2 - 12;
             final int offsetXRight = this.width / 2 + this.b_width / 2 - 26;
 
-            bootifulCuneiformInterface$interfaceHelper.initColorButtons(offsetX, offsetY);
-            bootifulCuneiformInterface$interfaceHelper.initFormatButtons(offsetX, offsetY + 2 + 8 * 16);
-            bootifulCuneiformInterface$interfaceHelper.initHelperButtons(offsetXRight, offsetY);
-            bootifulCuneiformInterface$interfaceHelper.modifyLocalButtons(offsetXRight, offsetY + 10 * 16 + 2);
+            final int offsetY = 4;
+
+            bootifulCuneiformInterface$helper.initColorButtons(offsetXLeft, offsetY);
+            bootifulCuneiformInterface$helper.initFormatButtons(offsetXLeft, offsetY + 2 + 8 * 16);
+            bootifulCuneiformInterface$helper.initHelperButtons(offsetXRight, offsetY);
+            bootifulCuneiformInterface$helper.modifyLocalButtons(offsetXRight, offsetY + 10 * 16 + 2);
         }
     }
 
     @Inject(method = "actionPerformed", at = @At("HEAD"), cancellable = true)
     private void bootifulcuneiforminterface$injectButtonActions(GuiButton button, CallbackInfo ci) {
-        if(!this.uneditable) {
-            bootifulCuneiformInterface$interfaceHelper.onClickToResetState(button, 1);
+        if (!this.uneditable) {
+            bootifulCuneiformInterface$helper.onClickToResetState(button, 1);
         }
 
         if (button.enabled && !this.uneditable) {
-            if(button.id == 1) {
-                bootifulCuneiformInterface$interfaceHelper.onClickFinishButton();
+            if (button.id == 1) {
+                bootifulCuneiformInterface$helper.onClickFinishButton();
                 ci.cancel();
             }
 
-            if(bootifulCuneiformInterface$interfaceHelper.onClickColorFormatButtons(button)) {
+            if (bootifulCuneiformInterface$helper.onClickColorFormatButtons(button)) {
                 ci.cancel();
             }
 
-            if(bootifulCuneiformInterface$interfaceHelper.onClickHelperButtons(button)) {
+            if (bootifulCuneiformInterface$helper.onClickHelperButtons(button)) {
                 ci.cancel();
             }
         }
@@ -82,8 +82,8 @@ public abstract class MixinGuiEditCuneiformBlock extends GuiScreen {
 
     @Inject(method = "keyTyped", at = @At("HEAD"))
     private void bootifulcuneiforminterface$injectResetErase(char eventChar, int eventKey, CallbackInfo ci) {
-        if(!this.uneditable) {
-            bootifulCuneiformInterface$interfaceHelper.onKeyPressedToResetState();
+        if (!this.uneditable) {
+            bootifulCuneiformInterface$helper.onKeyPressedToResetState();
         }
     }
 
@@ -93,11 +93,11 @@ public abstract class MixinGuiEditCuneiformBlock extends GuiScreen {
     private void bootifulcuneiforminterface$injectRenderInfo(float mouseX, float mouseY, float deltaTicks, CallbackInfo ci) {
         final int offsetXRight = this.width / 2 + this.b_width / 2 - 26;
 
-        if(bootifulCuneiformInterface$interfaceHelper.isEraseProceed()) {
+        if (bootifulCuneiformInterface$helper.isEraseProceed()) {
             this.drawString(fontRenderer, bootifulcuneiforminterface$info1, offsetXRight + 34, 8, 0xFFFFFFFF);
         }
 
-        if(bootifulCuneiformInterface$interfaceHelper.isFinishProceed()) {
+        if (bootifulCuneiformInterface$helper.isFinishProceed()) {
             this.drawString(fontRenderer, bootifulcuneiforminterface$info2, offsetXRight + 34, 10 + 10 * 16, 0xFFFFFFFF);
         }
     }

@@ -1,17 +1,15 @@
 package net.tracystacktrace.bootifulcuneiforminterface.gui;
 
-import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiEditCuneiformBlock;
-import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.common.util.i18n.StringTranslate;
 import net.tracystacktrace.bootifulcuneiforminterface.mixins.AccessorGuiEditCuneiformBlock;
 
 public class CuneiformInterface extends InterfaceHelper {
 
-    public CuneiformInterface(GuiScreen screen) {
+    public CuneiformInterface(GuiEditCuneiformBlock screen) {
         super(screen);
     }
-    
+
     public void modifyLocalButtons(int x, int y) {
         final StringTranslate translate = StringTranslate.getInstance();
 
@@ -32,14 +30,14 @@ public class CuneiformInterface extends InterfaceHelper {
     }
 
     @Override
-    protected void setText(String s) {
-        ((GuiEditCuneiformBlock) this.screen).setText(s);
+    protected void setText(String text) {
+        ((GuiEditCuneiformBlock) this.screen).setText(text);
     }
 
     @Override
-    protected void addText(String s) {
+    protected void appendText(String text) {
         final String original = this.getText();
-        ((GuiEditCuneiformBlock) this.screen).setText(original + s);
+        ((GuiEditCuneiformBlock) this.screen).setText(original + text);
     }
 
     @Override
@@ -49,7 +47,7 @@ public class CuneiformInterface extends InterfaceHelper {
 
     @Override
     protected void finishWriting() {
-        ((AccessorGuiEditCuneiformBlock)screen).bci$sendResult(true);
+        ((AccessorGuiEditCuneiformBlock) screen).bci$sendResult(true);
     }
 
 }
