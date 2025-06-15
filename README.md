@@ -4,11 +4,7 @@ A tiny mod that upgrades a cuneiform editing interface with color/format input b
 
 This is a client-side mod, which uses [FoxLoader](https://github.com/Fox2Code/FoxLoader) mod loader for ReIndev (2.9)
 
-![Showcase of functions!](https://github.com/tracystacktrace/BootifulCuneiformInterface/raw/main/docs/showcase.png)
-
-## Quick Guide
-
-![Quick GUI guide](https://github.com/tracystacktrace/BootifulCuneiformInterface/raw/main/docs/guide.png)
+![Showcase!](https://github.com/tracystacktrace/BootifulCuneiformInterface/raw/main/docs/showcase.png)
 
 ## Installation
 
