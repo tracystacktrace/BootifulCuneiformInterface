@@ -94,11 +94,13 @@ public abstract class MixinGuiEditCuneiformBlock extends GuiScreen {
             buttonPaste.canDisplayInfo = true;
             GuiButton buttonCopy = new GuiButton(124, offsetXRight, offsetY + 16, 16, 16, "§e↑", translate.translateKey("bootifulcuneiforminterface.copy"));
             buttonCopy.canDisplayInfo = true;
-
+            GuiButton insertEscape = new GuiButton(125, offsetXRight + 16, offsetY + 16, 16, 16, "§d\\n", translate.translateKey("bootifulcuneiforminterface.escapechar"));
+            insertEscape.canDisplayInfo = true;
 
             this.bootifulcuneiforminterface$eraseButton = new GuiButton(123, offsetXRight + 16, offsetY, 16, 16, "§c\u274C", translate.translateKey("bootifulcuneiforminterface.erase"));
             this.bootifulcuneiforminterface$eraseButton.canDisplayInfo = true;
 
+            this.controlList.add(insertEscape);
             this.controlList.add(buttonCopy);
             this.controlList.add(this.bootifulcuneiforminterface$eraseButton);
             this.controlList.add(buttonPaste);
@@ -185,6 +187,11 @@ public abstract class MixinGuiEditCuneiformBlock extends GuiScreen {
             //copy to clipboard
             if(button.id == 124) {
                 GuiScreen.setClipboardString(this.text);
+                ci.cancel();
+            }
+
+            if(button.id == 125) {
+                this.text = this.text + "\n";
                 ci.cancel();
             }
         }

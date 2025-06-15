@@ -1,8 +1,9 @@
-bootifulcuneiforminterface.paste=Paste from Clipboard
-bootifulcuneiforminterface.copy=Copy to Clipboard
-bootifulcuneiforminterface.erase=Erase Text
-bootifulcuneiforminterface.save=Save and Close
-bootifulcuneiforminterface.finish=Finish Writing
+bootifulcuneiforminterface.paste=Paste from clipboard
+bootifulcuneiforminterface.copy=Copy to clipboard
+bootifulcuneiforminterface.erase=Erase text
+bootifulcuneiforminterface.save=Save and close
+bootifulcuneiforminterface.finish=Finish writing
+bootifulcuneiforminterface.escapechar=Add escape sequence (\\n)
 
 bootifulcuneiforminterface.erase.confirmation=§cPress again to ERASE
 bootifulcuneiforminterface.finish.confirmation=§ePress again to FINISH
