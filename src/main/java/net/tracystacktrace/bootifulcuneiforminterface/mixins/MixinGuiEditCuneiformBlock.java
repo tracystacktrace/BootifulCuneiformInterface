@@ -3,6 +3,7 @@ package net.tracystacktrace.bootifulcuneiforminterface.mixins;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiEditCuneiformBlock;
 import net.minecraft.client.gui.GuiScreen;
+import net.minecraft.common.util.i18n.StringTranslate;
 import net.tracystacktrace.bootifulcuneiforminterface.BootifulCuneiformInterface;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -31,6 +32,9 @@ public class MixinGuiEditCuneiformBlock extends GuiScreen {
 
     @Unique
     private GuiButton bootifulcuneiforminterface$eraseButton;
+
+    @Unique
+    private final String bootifulcuneiforminterface$info1 = StringTranslate.getInstance().translateKey("bootifulcuneiforminterface.confirmation");
 
     /* END */
 
@@ -65,9 +69,17 @@ public class MixinGuiEditCuneiformBlock extends GuiScreen {
             final int offsetXRight = this.width / 2 + this.b_width / 2 - 26;
 
             //\u2193
+            final StringTranslate translate = StringTranslate.getInstance();
 
-            this.controlList.add(new GuiButton(122, offsetXRight, offsetY, 16, 16, "§a\u2193"));
-            this.controlList.add(this.bootifulcuneiforminterface$eraseButton = new GuiButton(123, offsetXRight + 16, offsetY, 16, 16, "§c\u274C"));
+            GuiButton buttonCopy = new GuiButton(122, offsetXRight, offsetY, 16, 16, "§a\u2193", translate.translateKey("bootifulcuneiforminterface.paste"));
+            buttonCopy.canDisplayInfo = true;
+
+            this.bootifulcuneiforminterface$eraseButton = new GuiButton(123, offsetXRight + 16, offsetY, 16, 16, "§c\u274C", translate.translateKey("bootifulcuneiforminterface.erase"));
+            this.bootifulcuneiforminterface$eraseButton.canDisplayInfo = true;
+
+            this.controlList.add(this.bootifulcuneiforminterface$eraseButton);
+            this.controlList.add(buttonCopy);
+
         }
     }
 
@@ -125,6 +137,16 @@ public class MixinGuiEditCuneiformBlock extends GuiScreen {
         if (!this.uneditable && this.bootifulcuneiforminterface$eraseProceed) {
             this.bootifulcuneiforminterface$eraseProceed = false;
             this.bootifulcuneiforminterface$eraseButton.displayString = "§c\u274C";
+        }
+    }
+
+    @Inject(method = "drawScreen", at = @At(
+            value = "INVOKE",
+            target = "Lnet/minecraft/client/gui/GuiScreen;drawScreen(FFF)V"))
+    private void bootifulcuneiforminterface$injectRenderInfo(float mouseX, float mouseY, float deltaTicks, CallbackInfo ci) {
+        if(this.bootifulcuneiforminterface$eraseProceed) {
+            final int offsetXRight = this.width / 2 + this.b_width / 2 - 26;
+            this.drawString(fontRenderer, bootifulcuneiforminterface$info1, offsetXRight + 34, 8, 0xFFFFFFFF);
         }
     }
 }
