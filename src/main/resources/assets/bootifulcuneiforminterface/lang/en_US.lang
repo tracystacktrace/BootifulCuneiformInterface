@@ -1,3 +1,7 @@
-bootifulcuneiforminterface.confirmation=§cPress again to erase
 bootifulcuneiforminterface.paste=Paste from Clipboard
 bootifulcuneiforminterface.erase=Erase Text
+bootifulcuneiforminterface.save=Close and Save
+bootifulcuneiforminterface.finish=Finish Writing
+
+bootifulcuneiforminterface.erase.confirmation=§cPress again to ERASE
+bootifulcuneiforminterface.finish.confirmation=§ePress again to FINISH
