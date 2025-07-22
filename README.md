@@ -1,10 +1,10 @@
 # Bootiful Cuneiform Interface
 
-A mod that upgrades a **cuneiform**, **sign** and **name tag** editing interfaces with QoL features!
+A small mod for FoxLoader (ReIndev mod loader) that enhances **Cuneiform**, **Sign** and **Name Tag** edit interfaces.
 
-Input color and format signs, copy and paste the content and... uhh escape sequence character (`\n`)???
+Now you can easily format the text by color/format prefixes, copy and paste contents and properly put escape sequences.
 
-This is a client-side mod, which uses [FoxLoader](https://github.com/Fox2Code/FoxLoader) mod loader for ReIndev (2.9)
+For better understanding about the changes, check out mod screenshots!
 
 ![Cuneiform Interface](https://github.com/tracystacktrace/BootifulCuneiformInterface/raw/main/docs/showcase.png)
 ![Sign Interface](https://github.com/tracystacktrace/BootifulCuneiformInterface/raw/main/docs/showcase_2.png)
@@ -12,7 +12,9 @@ This is a client-side mod, which uses [FoxLoader](https://github.com/Fox2Code/Fo
 
 ## Installation
 
-Simply grab a `.jar` file from releases and put into `mods` folder of your instance!
+Ensure you have [FoxLoader](https://github.com/Fox2Code/FoxLoader) installed. Click at the link and follow instructions (`Installation` section). Or in a nutshell, grab `*-mmc.zip` file and export it to MultiMC/PrismLauncher.
+
+Simply download a `.jar` file and put it inside `mods` folder. That's all.
 
 Want to compile by yourself? Just download the sources and run the following command:
 ```shell
